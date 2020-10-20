@@ -18,14 +18,10 @@ let port = process.env.PORT || 3000
 
 // const devModle = mongoose.model('Developer',devSchema)
 
-// //test endpoint
-// app.get('/test',async (req, res)=>{
-//     let newDev = new devModle({
-//         name:'hatem'
-//     })
-//     await newDev.save()
-//     res.send(newDev.name);
-// })
+//test endpoint
+app.get('/test',async (req, res)=>{
+    res.send('newDev.name');
+})
 
 //runing the app
 app.listen(port, () => {
