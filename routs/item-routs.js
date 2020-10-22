@@ -9,6 +9,7 @@ itemRouter.post('/item', async (req, res) => {
         name
     })
     try {
+        console.log(req.body)
         const newItemInfo = await newItem.save()
         res.send(newItemInfo)
     } catch (e) {
