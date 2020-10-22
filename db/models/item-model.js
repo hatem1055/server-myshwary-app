@@ -3,6 +3,8 @@ const mongoose = require('mongoose')
 const itemSchema = mongoose.Schema({
     name:{
         type: String,
+        default: 'failed'
+
     },
     isDone:{
         type: Boolean,
