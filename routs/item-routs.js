@@ -19,14 +19,13 @@ itemRouter.post('/item', async (req, res) => {
 //get items
 itemRouter.get('/item', async (req, res) => {
     try {
-        const _id = req.body.id;
         const items = await ItemModel.find({}).populate('needed shouldGet')
         const itemsData = []
         items.forEach((item)=>{
             console.log(item.needed)
             itemsData.push({
                 name:item.name,
-                id:item.id,
+                _id:item.id,
                 isDone:item.isDone,
                 needed:item.needed,
                 shouldGet:item.shouldGet
