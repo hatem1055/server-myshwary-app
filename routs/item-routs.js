@@ -1,5 +1,6 @@
 const express = require('express')
 const ItemModel = require('../db/models/item-model')
+const subitemModel = require('../db/models/subitem-model')
 const itemRouter = new express.Router()
 
 //add new item
@@ -15,6 +16,7 @@ itemRouter.post('/item', async (req, res) => {
         res.send(e.message)
     }
 })
+
 
 //get items
 itemRouter.get('/item', async (req, res) => {
@@ -70,6 +72,16 @@ itemRouter.delete('/item',async(req, res)=>{
         res.send(deleted)
     } catch (e) {
         res.send(e.message)
+    }
+})
+//remove every thing
+itemRouter.delete('/end-journey',async (req, res)=> {
+    try{
+        await ItemModel.deleteMany({})
+        await subitemModel.deleteMany({})
+        res.send('journey has ended')
+    }catch(e){
+        res.send(e)
     }
 })
 module.exports = itemRouter
